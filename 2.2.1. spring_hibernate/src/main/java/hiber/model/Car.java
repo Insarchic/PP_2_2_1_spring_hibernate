@@ -4,16 +4,16 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="car")
+@Table(name = "car")
 public class Car implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="model")
+    @Column(name = "model")
     private String model;
 
-    @Column(name="series")
+    @Column(name = "series")
     private int series;
 
     @OneToOne(mappedBy = "car")
@@ -22,10 +22,10 @@ public class Car implements Serializable {
     public Car() {
     }
 
-   public Car(String model, int series) {
+    public Car(String model, int series) {
         this.model = model;
         this.series = series;
-   }
+    }
 
     public User getUser() {
         return user;
