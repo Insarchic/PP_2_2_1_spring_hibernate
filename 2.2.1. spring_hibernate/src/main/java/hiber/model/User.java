@@ -1,9 +1,11 @@
 package hiber.model;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User {
 
    @Id
@@ -18,6 +20,18 @@ public class User {
 
    @Column(name = "email")
    private String email;
+
+   @OneToOne(mappedBy = "user")
+   @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+   private Car car;
+
+   public Car getCar() {
+      return car;
+   }
+
+   public void setCar(Car car) {
+      this.car = car;
+   }
 
    public User() {}
    
