@@ -1,8 +1,7 @@
 package hiber;
 
 import hiber.config.AppConfig;
-import hiber.dao.UserDao;
-import hiber.dao.UserDaoImp;
+
 import hiber.model.Car;
 import hiber.model.User;
 import hiber.service.UserService;
@@ -39,7 +38,16 @@ public class MainApp {
       userService.add(user3);
       userService.add(user4);
 
-      userService.getUserByCarModelAndSeries("Urus", 2024);
+      User userByCar = userService.getUserByModelAndSeries("Urus", 2024);
+      if (userByCar != null) {
+         Car car = userByCar.getCar();
+         System.out.printf("User with model %s and series %d: %s%n",
+                 car.getModel(),
+                 car.getSeries(),
+                 userByCar.getFirstName());
+      } else {
+         System.out.println("No user found with the specified car model and series.");
+      }
 
 
       List<User> users = userService.listUsers();

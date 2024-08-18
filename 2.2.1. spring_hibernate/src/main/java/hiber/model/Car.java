@@ -7,15 +7,17 @@ import java.io.Serializable;
 @Table(name="car")
 public class Car implements Serializable {
     @Id
-    @OneToOne
-    @JoinColumn(name="user_id", referencedColumnName = "id")
-    private User user;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name="model")
     private String model;
 
     @Column(name="series")
     private int series;
+
+    @OneToOne(mappedBy = "car")
+    private User user;
 
     public Car() {
     }
