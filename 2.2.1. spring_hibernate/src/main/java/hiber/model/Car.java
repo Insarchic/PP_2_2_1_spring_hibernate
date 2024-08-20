@@ -1,11 +1,10 @@
 package hiber.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "car")
-public class Car implements Serializable {
+public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -54,7 +53,6 @@ public class Car implements Serializable {
     @Override
     public String toString() {
         return "Car{" +
-                "user=" + user +
                 ", model='" + model + '\'' +
                 ", series=" + series +
                 '}';

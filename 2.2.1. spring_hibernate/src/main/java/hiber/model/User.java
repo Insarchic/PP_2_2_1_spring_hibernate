@@ -1,7 +1,6 @@
 package hiber.model;
 
 
-
 import javax.persistence.*;
 
 @Entity
@@ -72,5 +71,15 @@ public class User {
 
    public void setEmail(String email) {
       this.email = email;
+   }
+
+   @Override
+   public String toString() {
+      return "User{" +
+              "id=" + id +
+              ", firstName='" + firstName + '\'' +
+              ", lastName='" + lastName + '\'' +
+              ", email='" + email + '\'' +
+              '}';
    }
 }
